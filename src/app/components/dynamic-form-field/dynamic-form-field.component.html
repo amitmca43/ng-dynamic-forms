@@ -4,9 +4,14 @@
     <!-- <input *ngSwitchCase="'textbox'" [formControlName]="field.key" [id]="field.key" [type]="field.type"> -->
     <app-text-box *ngSwitchCase="'textbox'" [field]="field" [form]="form"></app-text-box>
 
-    <select [id]="field.key" *ngSwitchCase="'dropdown'" [formControlName]="field.key">
-      <option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</option>
-    </select>
-
-  </div>  
+    <div *ngSwitchCase="'dropdown'" class="form-group">
+      <label for="field.key">
+        <i *ngIf="required" class="fas fa-asterisk" style="color:red"></i>
+        {{field.label}}
+      </label>
+      <select [id]="field.key" class="form-control" [formControlName]="field.key">
+        <option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+    </div>
+  </div>
 </div>
