@@ -1,13 +1,13 @@
-import { Component, Input, OnInit }  from '@angular/core';
-import { FormGroup }                 from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
-import { BaseField }              from '../../form-fields/base-field';
-import { FormFieldsControlService }    from '../../services/form-field-control.service';
+import { BaseField } from '../../form-fields/base-field/base-field';
+import { FormFieldsControlService } from '../../services/form-field-control.service';
 
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  providers: [ FormFieldsControlService ]
+  providers: [FormFieldsControlService]
 })
 export class DynamicFormComponent implements OnInit {
 
@@ -15,7 +15,7 @@ export class DynamicFormComponent implements OnInit {
   form: FormGroup;
   payLoad = '';
 
-  constructor(private qcs: FormFieldsControlService) {  }
+  constructor(private qcs: FormFieldsControlService) { }
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.fields);
