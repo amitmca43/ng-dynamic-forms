@@ -1,0 +1,26 @@
+<div class="example-container">
+  <h2>To do</h2>
+  <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
+    class="example-list">
+    <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+  </div>
+</div>
+
+<div class="example-container">
+  <h2>Form</h2>
+
+  <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="fields" [cdkDropListConnectedTo]="[todoList]"
+     (cdkDropListDropped)="drop($event)" class="example-list">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <div *ngFor="let field of fields">
+        <div class="example-box" cdkDrag>
+          <app-form-field [field]="field" [form]="form"></app-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div>
+  <strong>Saved the following values</strong><br>{{ formData }}
+</div>

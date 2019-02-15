@@ -17,7 +17,7 @@ export class FormsService {
     validators.push(
       new FieldValidator(ValidationType.required, ''),
       new FieldValidator(ValidationType.minLength, 3),
-      new FieldValidator(ValidationType.maxLength, 5)
+      new FieldValidator(ValidationType.maxLength, 20)
     );
 
     const formFields: BaseField<any>[] = [
@@ -32,7 +32,7 @@ export class FormsService {
           { key: 'unproven', value: 'Unproven' }
         ],
         order: 4,
-        validators
+        validators : [ new FieldValidator(ValidationType.required, '')]
       }),
 
       new TextboxField({
@@ -56,7 +56,7 @@ export class FormsService {
         label: 'Email',
         type: 'email',
         order: 3,
-        validators
+        validators: [ new FieldValidator(ValidationType.required, ''), new FieldValidator(ValidationType.email, '')]
       })
     ];
 

@@ -2,12 +2,11 @@
   <div *ngFor="let field of fields">
     <app-form-field [field]="field" [form]="form"></app-form-field>
   </div>
-
-  
-    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Save</button>
-  
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Save</button>
 </form>
 
-<div *ngIf="payLoad" >
+<div *ngIf="payLoad">
   <strong>Saved the following values</strong><br>{{payLoad}}
 </div>
+
+<app-form-builder></app-form-builder>

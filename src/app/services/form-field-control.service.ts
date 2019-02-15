@@ -13,12 +13,7 @@ export class FormFieldsControlService {
 
     formFields.forEach(formField => {
       const control = new FormControl(formField.value || '');
-
-      const validators: ValidatorFn[] = [];
-      validators.push(Validators.required);
-
       control.setValidators(this.getValidators(formField));
-
       group[formField.key] = control;
     });
     return new FormGroup(group);
